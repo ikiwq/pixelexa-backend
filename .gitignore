@@ -1,0 +1,5 @@
+static/uploads/images/*
+!static/uploads/images/default-user-image.jpg
+migrations
+__pycache__
+.idea
