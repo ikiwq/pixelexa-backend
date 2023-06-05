@@ -1,11 +1,5 @@
 from extension import db
-from chat.models import Chat
 from werkzeug.security import generate_password_hash, check_password_hash
-
-chat_user = db.Table('chat_user',
-    db.Column('chat_id', db.Integer, db.ForeignKey('chat.id')),
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
-)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -27,8 +21,6 @@ class User(db.Model):
 
     is_active = db.Column(db.Boolean, default=True)
     is_muted = db.Column(db.Boolean, default=False)
-
-    chats = db.relationship(Chat, secondary=chat_user, backref='users')
 
     @property
     def password(self):

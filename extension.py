@@ -1,6 +1,3 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_socketio import SocketIO
 
-db = SQLAlchemy()
-socketio = SocketIO()
-
+db = SQLAlchemy(session_options={"autoflush": False})

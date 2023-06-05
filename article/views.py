@@ -21,13 +21,14 @@ def create():
 
     UPLOADS_PATH = join(current_app.config['UPLOAD_FOLDER'], 'images')
 
+    #every image will be recognized with a unique uuid
     image_name = str(uuid4())
-    print(image_name)
     image_file.save(join(UPLOADS_PATH, image_name + '.jpg'))
-
+    #since the article data is sent as a json string,
+    #parse it
     data = request.form.get('data')
     data = json.loads(data)
-
+    #get the current user
     user = User.query.filter_by(id=session['user_id']).first()
 
     article = Article(
@@ -38,18 +39,18 @@ def create():
     )
 
     article.image = image_name
-
+    #if we have categories inside our request, we need to check a few things
     if data['categories']:
         for category in data['categories']:
             category_obj = Category.query.filter_by(name=category).first()
-
+            #check if the category exists
             if not category_obj:
+                #if not, create it
                 category_obj = Category(
-                    name=category,
-                )
+                    name=category,)
 
             category_obj.articles.append(article)
-
+            #create the relationships
             db.session.add(category_obj)
             db.session.commit()
 

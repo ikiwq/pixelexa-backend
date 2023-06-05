@@ -25,6 +25,7 @@ class UserSchema(Schema):
 
     @pre_dump()
     def do_things(self, data, **kwargs):
+        ##Urlify the image if it is not.
         if not data.profile_image.startswith("http"):
             data.profile_image = self.path + data.profile_image
         if data.background_image and not data.background_image.startswith("http"):

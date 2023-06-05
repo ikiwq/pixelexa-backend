@@ -37,14 +37,15 @@ class ArticleSchema(Schema):
 
     @pre_dump()
     def do_things(self, data, **kwargs):
-
+        #before the dump, check if the image has been "urlified"
+        #otherwise urlify it.
         if not data.image.__contains__('http://localhost:5000/image/'):
             data.image = self.path + data.image
 
         data.stars_count = Star.query.filter_by(article_id=data.id).count()
         data.saves_count = Save.query.filter_by(article_id=data.id).count()
         data.comments_count = ArticleComment.query.filter_by(article_id=data.id).count()
-
+        #If the user is logged in, try to check if the article is starred or saved
         try:
             if session['user_id'] != -1:
                 if Star.query.filter_by(article_id=data.id, user_id=session['user_id']).first():
