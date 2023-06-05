@@ -4,7 +4,10 @@ Pixelexa is an open-source online newspaper inspired by the Washington Post. It 
 The user can interact with the articles: read them, star them, comment on them, and filter them by a specific text or by a category.
 
 #### Source code
-This is the frontend repository, and the backend repository can be found [here](https://github.com/ikiwq/pixelexa-frontend).
+This is the backend repository, and the frontend repository can be found [here](https://github.com/ikiwq/pixelexa-frontend).
+
+#### Built with
+[![My Skills](https://skillicons.dev/icons?i=python,flask&theme=light)](https://skillicons.dev)
 
 ## Installation
 ### Getting the files and the requisites
