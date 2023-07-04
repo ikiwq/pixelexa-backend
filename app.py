@@ -14,6 +14,7 @@ from article.urls import article_bp
 from user_interaction.urls import user_interaction_bp
 from article.comment.urls import comment_bp
 from category.urls import category_bp
+from image.urls import image_bp
 
 from auth import utils
 
@@ -42,6 +43,7 @@ app.register_blueprint(article_bp, url_prefix="/article", support_credentials=Tr
 app.register_blueprint(user_interaction_bp, url_prefix="/interaction", support_credentials=True)
 app.register_blueprint(category_bp, url_prefix="/category", support_credentials=True)
 app.register_blueprint(comment_bp, url_prefix="/comment", support_credentials=True)
+app.register_blueprint(image_bp, url_prefix="/image", support_credentials=True)
 
 #This middleware will check for any auth_tokens cookies.
 @app.before_request
