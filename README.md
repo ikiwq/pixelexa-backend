@@ -1,16 +1,18 @@
 # Pixelexa
-## Introduction
+### Overview
 Pixelexa is an open-source online newspaper inspired by the Washington Post. It was meant to give the users an opportunity to publish articles of all kinds without the need to be an actual reporter. 
 The user can interact with the articles: read them, star them, comment on them, and filter them by a specific text or by a category.
 
-#### Source code
 This is the backend repository, and the frontend repository can be found [here](https://github.com/ikiwq/pixelexa-frontend).
 
 #### Built with
 [![My Skills](https://skillicons.dev/icons?i=python,flask&theme=light)](https://skillicons.dev)
 
-## Installation
-### Getting the files and the requisites
+### Requisites
+- Python 3.10 or higher. Download python from the [official website](https://www.python.org)
+- Flask. Install flask by using the ```pip install``` command.
+  
+### Installation
 Clone the repository:
 
     git clone https://github.com/[username]/[project-name].git
